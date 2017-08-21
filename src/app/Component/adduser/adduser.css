@@ -1,0 +1,17 @@
+.fromGroup{
+    width:500px;
+    height:1550px;
+    background:white;
+    margin-left:300px;
+    border: #2980b9 4px solid; 
+    padding-top:20px;
+    border-radius:6px;
+    margin-top:20px;      
+}
+.user{
+    margin-left:150px
+}
+.btn{
+    margin-left:400px;
+    margin-top:20px;
+}

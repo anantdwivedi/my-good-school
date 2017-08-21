@@ -1,0 +1,29 @@
+
+<form class="fromGroup" novalidate (ngSubmit)="onSubmit()" [formGroup]="user">
+    <div class="user">
+        <label>
+        <h4><span for="inputdefault">UserName</span></h4>
+        <input  class="form-control" id="inputdefault" type="text" placeholder="Enter user name" formControlName="username">
+      </label>
+        <div class="error" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+            <strong class="alert alert-warning"> Name is required</strong>
+        </div>
+        <div class="error" *ngIf="user.get('username').hasError('minlength') && user.get('username').touched">
+            <strong class="alert alert-warning">Minimum of 2 characters</strong>
+        </div>
+    </div>
+    <div class="user1">
+        <label>
+        <h4><span for="inputdefault">UserPassword</span></h4>
+        <input class="form-control" id="inputdefault"  type="password" placeholder="Enter user password" formControlName="password">
+      </label>
+        <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+            <strong class="alert alert-info"> Password is required</strong>
+        </div>
+        <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
+            <strong class="alert alert-danger"> Minimum of 2 characters</strong>
+        </div>
+    </div>
+
+    <button class="btn btn-info" type="submit" [disabled]="user.invalid">Login</button>
+</form>

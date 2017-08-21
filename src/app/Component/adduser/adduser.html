@@ -1,0 +1,171 @@
+
+<form class="well well-lg" class="fromGroup" novalidate (ngSubmit)="signUp()" [formGroup]="user">
+    <div class="user">
+        <!--<label>
+        <h4><span for="inputdefault">UserId</span></h4>
+        <input class="form-control" id="inputdefault" type="number" placeholder="Enter user id" formControlName="id">
+      </label>
+        <div class="error" *ngIf="user.get('id').hasError('required') && user.get('id').touched">
+            Id is required
+        </div>
+        <div class="error" *ngIf="user.get('id').hasError('minlength') && user.get('id').touched">
+            Minimum
+        </div>-->
+        <label class="center-block">RoleId:
+      <select  style=width:220px class="form-control" formControlName="roleIds">
+          <option *ngFor="let role of rolesData" [value]="role.roleId" >
+              {{role.roleName}}
+
+          </option>
+            
+      </select>
+    </label> 
+    </div>
+    <div class="user">
+        <label>
+        <h4><span for="inputdefault">User Name</span></h4>
+        <input  class="form-control" id="inputdefault" type="text" placeholder="Enter user name" formControlName="username">
+      </label>
+        <div class="error" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+            Name is required
+        </div>
+        <div class="error" *ngIf="user.get('username').hasError('minlength') && user.get('username').touched">
+            Minimum of 6 characters
+        </div>
+    </div>
+
+    <div class="user">
+        <label>
+        <h4><span for="inputdefault">User Password</span></h4>
+        <input class="form-control" id="inputdefault" type="password" placeholder="Enter user password" formControlName="password">
+      </label>
+        <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+            Password is required
+        </div>
+        <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
+            Minimum of 2 characters
+        </div>
+    </div>
+
+    <div class="user">
+        <label>
+        <h4><span for="inputdefault">Enter Name</span></h4>
+        <input class="form-control" id="inputdefault"  type="text" placeholder="Enter  name" formControlName="name">
+      </label>
+        <div class="error" *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+            Name is required
+        </div>
+        <div class="error" *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+            Minimum of 6 characters
+        </div>
+    </div>
+    <div class="user">
+        <label>
+        <h4><span for="inputdefault">Enter Nick Name</span></h4>
+        <input class="form-control" id="inputdefault"  type="text" placeholder="Enter  name" formControlName="nickName">
+      </label>
+    </div>
+
+    <div class="user">
+        <label>
+        <h4><span for="inputdefault">Enter Email</span></h4>
+        <input class="form-control" id="inputdefault"  type="text" placeholder="Enter  Email" formControlName="email">
+      </label>
+        <div class="error" *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+            Email is required
+        </div>
+    </div>
+    
+        <div class="user">
+        <label>
+        <h4><span for="inputdefault">Enter Mobile Number</span></h4>
+        <input class="form-control" id="inputdefault" type="text" placeholder="Enter Mobile Number" formControlName="mobile">
+      </label>
+        <div class="error" *ngIf="user.get('mobile').hasError('required') && user.get('mobile').touched">
+            Email is required
+        </div>
+    </div>
+    
+     <!--<div formGroupName="address">-->
+    <div class="user">
+        <label>
+        <h4><span for="inputdefault">Enter Address1</span></h4>
+        <input class="form-control" id="inputdefault"  type="text" placeholder="Enter Address1" formControlName="address1">
+       </label>
+       
+    </div>
+    <div class="user">
+        <label>
+        <h4><span for="inputdefault">Enter Address2</span></h4>
+        <input class="form-control" id="inputdefault"  type="text" placeholder="Enter Address2" formControlName="address2">
+       </label>
+       
+    </div>
+    <div class="user">
+         <label> 
+             <h4><span for="inputdefault">City</span></h4>
+             <input class="form-control" id="inputdefault"  type="text" placeholder="Enter City Name" formControlName="city">
+         </label>
+    </div>
+
+       <div class="user">
+    <label class="center-block">State:
+      <select class="form-control" formControlName="state">
+          <option *ngFor="let state of states" [value]="state">{{state}}</option>
+      </select>
+    </label>
+  </div>  
+      <div class="user">
+         <label> 
+             <h4><span for="inputdefault">Pincode</span></h4>
+             <input class="form-control" id="inputdefault"  type="number" placeholder="Enter Pincode" formControlName="pincode">
+         </label>
+    </div> 
+   
+    <!--</div>-->
+     <div class="user">
+         <label> 
+             <h4><span for="inputdefault">areOfInterest</span></h4>
+             <input class="form-control" id="inputdefault"  type="text" placeholder="Enter areOfInterest " formControlName="areaOfInterest">
+         </label>
+    </div>
+    <div class="user">
+         <label> 
+             <h4><span for="inputdefault">school</span></h4>
+             <input class="form-control" id="inputdefault"  type="text" placeholder="Enter school " formControlName="school">
+         </label>
+    </div>
+    <div class="user">
+         <label> 
+             <h4><span for="inputdefault">organization</span></h4>
+             <input class="form-control" id="inputdefault"  type="text" placeholder="organization" formControlName="organization">
+         </label>
+    </div>
+    <div class="user">
+         <label> 
+             <h4><span for="inputdefault">designation</span></h4>
+             <input class="form-control" id="inputdefault"  type="text" placeholder="Enter designation " formControlName="designation">
+         </label>
+    </div>
+
+       <div class="user">
+         <label> 
+             <h4><span for="inputdefault">facebookPage</span></h4>
+             <input class="form-control" id="inputdefault"  type="text" placeholder="facebookPage " formControlName="facebookPage">
+         </label>
+    </div>
+      <div class="user">
+         <label> 
+             <h4><span for="inputdefault">status</span></h4>
+             <input class="form-control" id="inputdefault"  type="text" placeholder="status " formControlName="status">
+         </label>
+    </div>
+      <div class="user">
+         <label> 
+             <h4><span for="inputdefault">membershipNo</span></h4>
+             <input class="form-control" id="inputdefault"  type="text" placeholder="Enter membershipNo " formControlName="membershipNo">
+         </label>
+    </div>
+    
+     <button class="btn btn-info" type="submit" [disabled]="user.invalid">Sign Up</button> 
+</form>

@@ -1,0 +1,67 @@
+<button style=margin-left:750px  type="button" class="btn btn-primary" (click)="openModal(template)">Create Poll modal</button>
+ 
+<template #template style=margin-top:100px >
+  <div class="modal-header" style=background:red>
+    <h4 class="modal-title pull-left">Add Poll</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div style=height:500px;width:450px   class="modal-body">
+        <form class="fromGroup" novalidate (ngSubmit)="onPoll()" [formGroup]="poll">
+        <label>
+        <h4><span for="inputdefault">Question </span></h4>
+        <input style=width:450px class="form-control" id="inputdefault" type="text" placeholder="Enter Question  " formControlName="question">
+      </label>
+        <div class="error" *ngIf="poll.get('question').hasError('required') && poll.get('question').touched">
+            <strong class="alert alert-warning"> question is required</strong>
+        </div>
+         <label class="center-block">Audience:
+      <select class="form-control" formControlName="Audience">
+          <option *ngFor="let state of states" [value]=""></option>
+          <option>class</option>
+          <option>School</option>
+      </select>
+    </label> 
+     <label>
+        <h4><span for="inputdefault">Due Date</span></h4>
+        <input style=width:450px   class="form-control" id="inputdefault" type="date" placeholder=" " formControlName="duedate">
+      </label>
+
+           <label class="center-block">Select Option Type:
+      <select class="form-control" formControlName="optiontype">
+          <option *ngFor="let state of states" [value]=""></option>
+          <option>Single Choice</option>
+          <option>Multipal Choice</option>
+      </select>
+        </label>
+        <!--<div formGroupName="choice">-->
+       <label>
+        <h4><span for="inputdefault">Choices </span></h4>
+        <div class="row">
+       <div class="col-sm-8" style=width:350px >   
+        <input  class="form-control" id="inputdefault" type="text" placeholder="Enter Choice1....  " formControlName="choice1">
+       </div>
+       <div class="col-sm-2">
+            <button type="button" class="btn btn-info">Cancle</button>
+         </div> 
+       </div>
+      </label>
+      <label>
+        <div class="row">
+         <div class="col-sm-8" style=width:350px>
+            <input class="form-control" id="inputdefault" type="text" placeholder="Enter Choice2....  " formControlName="choice2">
+         </div>
+         <div class="col-sm-2">
+            <button type="button" class="btn btn-danger">Cancle</button>
+         </div>
+        </div>
+      </label>
+        <div class="error" *ngIf="poll.get('choice1').hasError('required') && poll.get('choice1').touched">
+            <strong class="alert alert-warning"> choice is required</strong>
+        </div>
+        <!--</div>-->
+    <button class="btn btn-info" type="submit" [disabled]="poll.invalid">Submit</button>
+</form>
+  </div>
+</template>

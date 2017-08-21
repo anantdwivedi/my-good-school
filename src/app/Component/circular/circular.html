@@ -1,0 +1,101 @@
+
+  <form class="fromGroup" novalidate (ngSubmit)="onCircular()" [formGroup]="circular">
+       
+         <label class="center-block">RoleId:
+             <select style=width:220px class="form-control" formControlName="circularId" >
+                  <option *ngFor="let role of rolesData" [value]="role.roleId" >
+              {{role.roleName}}
+
+                </option>
+             </select>
+
+         </label>
+        <label>
+         <span for="inputdefault" >Enter Title</span>
+        <span style=background:red  class="badge">{{50-circular.value.title.length}}</span>
+        <input style=width:450px class="form-control" id="inputdefault" type="text" placeholder="add title " formControlName="title">
+      </label>
+        <div class="error" *ngIf="circular.get('title').hasError('required') && circular.get('title').touched">
+            <strong class="alert alert-warning"> title is required</strong>
+        </div>
+ 
+        <label>
+        <span for="inputdefault">Description</span>
+        <span style=background:red  class="badge">{{100-circular.value.description.length}}</span>
+        <!--<input style=height:70px;width:450px  class="form-control" id="inputdefault" type="text" placeholder="add description" formControlName="description">-->
+        <textarea style=width:450px  class="form-control" formControlName="description" row="3"></textarea>
+      </label>
+        <div class="error" *ngIf="circular.get('description').hasError('required') && circular.get('description').touched">
+            <strong class="alert alert-warning"> description is required</strong>
+        </div>
+
+        <label>
+        <span for="inputdefault">Due Date</span>
+        <input style=width:450px   class="form-control" id="inputdefault" type="date" placeholder=" " formControlName="expireOn" (change)="onDueDate($event)" >
+        
+      </label>
+        <div   class="error" *ngIf="circular.get('expireOn').hasError('required') && circular.get('expireOn').touched">
+            <strong class="alert alert-warning"> Date is required</strong>
+        </div>
+
+    <label class="center-block">Audience:
+      <select class="form-control" formControlName="Audience" (ngModelChange)="audienceSelect($event)">
+          <!--<option *ngFor="let audience of audience" [value]=""></option>-->
+          <option [value]="1">class</option>
+          <option [value]="2">School</option>
+      </select>
+    </label> 
+    <label class="center-block" *ngIf="circular.controls.Audience.value==1">Select Standard:
+          <select class="form-control" formControlName="selectMultiple" multiple>
+          <option *ngFor="let select of select" [value]=""></option>
+          <option [value]="1">PG</option>
+          <option [value]="2">KG</option>
+          <option [value]="3">PREP</option>
+          <option [value]="4">1st</option>
+      </select>
+    </label> 
+    <!--<label class="center-block">Select Standard:</label>-->
+      <!--<button type="button" class="form-control" (click)="dropdown ? dropdown = false : dropdown = true;" >Select multiple option </button>-->
+      <!--<button type="button" class="form-control" *ngIf="standards == null">No Standards are added to the View. Try again later.</button>-->
+        <!--<ul class="list" id="standardIds" *ngIf="dropdown">
+            <li style="list-style-type:none">
+              <label>
+                    <input type="checkbox" formControlName="selectMultiple" class="checkbox"[value]="1" style="float:left">
+                      PG
+              </label>
+            </li>
+            <li style="list-style-type:none">
+              <label>
+                    <input type="checkbox" class="checkbox"[value]="2" style="float:left">
+                      KG
+              </label>
+            </li>
+            <li style="list-style-type:none">
+              <label>
+                    <input type="checkbox" class="checkbox"[value]="3" style="float:left">
+                      PREP
+              </label>
+            </li>
+            <li style="list-style-type:none">
+              <label>
+                    <input type="checkbox" class="checkbox"[value]="4" style="float:left">
+                      1st
+              </label>
+            </li>
+            <li style="list-style-type:none">
+              <label>
+                    <input type="checkbox" class="checkbox"[value]="5" style="float:left">
+                      2nd
+              </label>
+            </li>
+            <li style="list-style-type:none">
+              <label>
+                    <input type="checkbox" class="checkbox"[value]="" style="float:left">
+                      3rd
+              </label>
+            </li>
+        </ul>-->
+
+   
+    <button class="btn btn-info" type="submit" [disabled]="circular.invalid">Submit</button>
+</form>

@@ -1,0 +1,87 @@
+<div class="custom-calendar">
+<angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
+  
+</div> 
+<div id="fullCalModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style=background:red  >
+                <span>Create new Event</span>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+            </div>
+     <div id="modalBody" class="modal-body" style=height:580px >
+               
+     <form class="fromGroup" novalidate (ngSubmit)="onEvent()" [formGroup]="event">
+            <label>
+        <span for="inputdefault" > Title</span>
+        <span style=background:red  class="badge">{{50-event.value.title.length}}</span>
+        <input style=width:450px class="form-control" id="inputdefault" type="text" placeholder="enter title " formControlName="title">
+      </label>
+        <div class="error" *ngIf="event.get('title').hasError('required') && event.get('title').touched">
+            <strong class="alert alert-warning"> title is required</strong>
+        </div>
+        <label class="center-block">Planner-type;
+            <select style=width:450px  class="form-control" fromControlName="plannertype">
+                <option *ngFor="let select of select" [value]=""></option>
+                <option>Class Event</option>
+                <option>School Event</option>
+                <option>National Holiday</option>
+                <option>EA Test</option>
+                <option>House Event</option>
+            </select>
+        </label>
+
+           <label>
+        <span for="inputdefault">Start Date</span>
+        <input style=width:450px   class="form-control" id="inputdefault" type="date"  formControlName="startdate" (change)="onStartDate($event)">
+        
+      </label>
+        <div   class="error" *ngIf="event.get('startdate').hasError('required') && event.get('startdate').touched">
+            <strong class="alert alert-warning"> start date is required</strong>
+        </div>
+        <label>
+         <span>End Date </span>
+          <input style=width:450px class="form-control" type="date" formControlName="enddate">
+        </label>
+        <div class="error" *ngIf="event.get('enddate').hasError('required') && event.get('enddate').touched">
+              <strong class="alert alert-warning">end date is required</strong>
+        </div>
+        <label>
+            <span>Start Time</span>
+            <input style=width:450px class="form-control" type="time" formControlName="starttime">
+            <!--<input type="time" style=width:450px class="form-control glyphicon glyphicon-time" formControlName="starttime" id="startTime" name="startTime"> -->
+        </label>
+        <label>
+            <span>End Time</span>
+             <input style=width:450px class="form-control" type="time" formControlName="endtime">
+        </label>
+        <label>
+        <span>Description</span>
+        <span class="small">Optional</span>
+        <span style=background:red class="badge">{{250-event.value.description.length}}</span>
+        <textarea style=width:450px  class="form-control" formControlName="description" row="3"></textarea>
+      </label>
+        <div class="error" *ngIf="event.get('description').hasError('required') && event.get('description').touched">
+            <strong class="alert alert-warning"> description is required</strong>
+        </div>
+       <label>
+           <span>Location</span>
+          <span class="small">Optional</span>
+          <span style=background:red  class="badge">{{50-event.value.location.length}}</span>
+           <input style=width:450px class="form-control" type="text" formControlName="location">
+
+       </label>
+           
+       <!--<button class="btn btn-info" type="submit" [disabled]="event.invalid">Submit</button>-->
+   <!--</form>-->
+<!--
+ </div>-->
+            <div class="modal-footer">
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                <button class="btn btn-info" type="submit" [disabled]="event.invalid">Submit</button>
+            </div>
+     </form>
+  </div>   
+        </div>
+    </div>
+</div>  
