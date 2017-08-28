@@ -2,7 +2,7 @@
   <form class="fromGroup" novalidate (ngSubmit)="onCircular()" [formGroup]="circular">
        
          <label class="center-block">RoleId:
-             <select style=width:220px class="form-control" formControlName="circularId" >
+             <select style=width:220px class="form-control" formControlName="roleIds" multiple >
                   <option *ngFor="let role of rolesData" [value]="role.roleId" >
               {{role.roleName}}
 
@@ -10,6 +10,15 @@
              </select>
 
          </label>
+           <label>
+                
+             <div class="form-group">
+             <div>Attachment<span class="small">(Optional)</span></div>
+            <input type="file" accept="images/*" class="form-control-file" formControlName="file" id="exampleInputFile" aria-describedby="fileHelp"
+                (change)="getFile($event)" accept="image/*">
+              <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>-->
+            </div>
+      </label>
         <label>
          <span for="inputdefault" >Enter Title</span>
         <span style=background:red  class="badge">{{50-circular.value.title.length}}</span>
@@ -38,10 +47,10 @@
             <strong class="alert alert-warning"> Date is required</strong>
         </div>
 
-    <label class="center-block">Audience:
+    <!--<label class="center-block">Audience:
       <select class="form-control" formControlName="Audience" (ngModelChange)="audienceSelect($event)">
           <!--<option *ngFor="let audience of audience" [value]=""></option>-->
-          <option [value]="1">class</option>
+          <!--<option [value]="1">class</option>
           <option [value]="2">School</option>
       </select>
     </label> 
@@ -53,7 +62,9 @@
           <option [value]="3">PREP</option>
           <option [value]="4">1st</option>
       </select>
-    </label> 
+    </label>-->
+     
+
     <!--<label class="center-block">Select Standard:</label>-->
       <!--<button type="button" class="form-control" (click)="dropdown ? dropdown = false : dropdown = true;" >Select multiple option </button>-->
       <!--<button type="button" class="form-control" *ngIf="standards == null">No Standards are added to the View. Try again later.</button>-->

@@ -26,6 +26,8 @@ import { ModalModule, CarouselModule } from 'ngx-bootstrap';
 import { AddUserService } from "./Services/adduser.service";
 import { CircularService } from "./Services/circular.service";
 import {CalendarModule} from "ap-angular2-fullcalendar";
+import { PollService } from "./Services/poll.service";
+
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, LoginComponent, AccountComponent, MenuComponent, MessagingComponent, 
@@ -42,7 +44,7 @@ import {CalendarModule} from "ap-angular2-fullcalendar";
     CarouselModule.forRoot(),
     CalendarModule
   ],
-  providers: [ AuthService, AuthGuard, CustomHttpService, Configuration, AddUserService, CircularService,
+  providers: [ AuthService, AuthGuard, CustomHttpService, Configuration, AddUserService, CircularService, PollService,
     {
       provide: CustomHttpService, 
       useFactory: (backend: XHRBackend, defaultOptions: RequestOptions) =>{

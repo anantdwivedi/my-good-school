@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
      }
 
        signUp(userdata:any){
-       return this.http.post(this.baseurl +"/admin/addUser",userdata)
+       return this.http.post(this.baseurl +"/admin/user",userdata)
        .map((response: Response)=>{
          console.log(response);
            return response.json();
@@ -22,7 +22,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
        })
   }
      getAddUserDetails(){
-    return this.http.get(this.baseurl+"/admin/addUser" )
+    return this.http.get(this.baseurl+"/admin/user" )
     .map((res) =>res.json())
     .catch((err) =>err);
   }

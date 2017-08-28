@@ -12,7 +12,7 @@ public options;
 public server;
 public url: string = "http://192.168.1.23:8080";
 public Server: string = "http://192.168.1.21:8080/mygoodschool";
-public baseUrl: string = "http://192.168.1.16:8080";
+public baseUrl: string = "https://mygoodschool.ind-cloud.everdata.com/api";
 
 constructor(public http: CustomHttpService,
 ) {
