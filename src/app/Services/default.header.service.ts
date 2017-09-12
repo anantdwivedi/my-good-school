@@ -26,6 +26,7 @@ export class CustomHttpService extends Http {
       'account': 'admin'
     });
     super(backend, options);
+
   }
 
   // its like interceptor, calls by each methods internally like get, post, put, delete etc
@@ -42,6 +43,8 @@ export class CustomHttpService extends Http {
       url.headers.set('Authorization', `${getToken()}`);
       url.headers.set('account', 'admin');
     }
+    console.log(url, options);
+    
     return super.request(url, options);
   }
 }

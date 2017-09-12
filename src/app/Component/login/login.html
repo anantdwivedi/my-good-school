@@ -1,10 +1,8 @@
 
-<form class="fromGroup" novalidate (ngSubmit)="onSubmit()" [formGroup]="user">
+<!--<form class="fromGroup" novalidate (ngSubmit)="onSubmit()" [formGroup]="user">
     <div class="user">
-        <label>
-        <h4><span for="inputdefault">UserName</span></h4>
-        <input  class="form-control" id="inputdefault" type="text" placeholder="Enter user name" formControlName="username">
-      </label>
+         <span>UserName</span>
+         <input  class="form-control"type="text" placeholder="Enter user name" formControlName="username">
         <div class="error" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
             <strong class="alert alert-warning"> Name is required</strong>
         </div>
@@ -13,10 +11,8 @@
         </div>
     </div>
     <div class="user1">
-        <label>
-        <h4><span for="inputdefault">UserPassword</span></h4>
-        <input class="form-control" id="inputdefault"  type="password" placeholder="Enter user password" formControlName="password">
-      </label>
+        <span>UserPassword</span>
+        <input class="form-control" type="password" placeholder="Enter user password" formControlName="password">
         <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
             <strong class="alert alert-info"> Password is required</strong>
         </div>
@@ -24,6 +20,21 @@
             <strong class="alert alert-danger"> Minimum of 2 characters</strong>
         </div>
     </div>
-
     <button class="btn btn-info" type="submit" [disabled]="user.invalid">Login</button>
-</form>
+</form>-->
+<div class="aa">
+    <h2>Login</h2>
+    <form class="fromGroup" novalidate (ngSubmit)="onSubmit()" [formGroup]="user">
+       <input class="form-control" type="text" placeholder="Please Enter Username" formControlName="username"><br>
+       <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+            <strong class="alert alert-info"> Password is required</strong>
+        </div>
+       <input class="form-control" type="password" placeholder="Please Enter Password" formControlName="password"><br> 
+       <div class="error" *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
+            <strong class="alert alert-danger"> Minimum of 2 characters</strong>
+        </div>
+        <button class="btn btn-info" type="submit" [disabled]="user.invalid">Login</button>
+    </form>
+</div>
+
+

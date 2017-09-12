@@ -1,0 +1,56 @@
+
+<div class="panel panel-default">
+         <div class="panel-heading" style=background:green >
+               Add poll
+                <button style=background:white type="button" class="close pull-right" aria-label="Close" (click)="back()">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+         </div>
+          <div *ngIf="isValidFormSubmitted " style=margin-top:200px;margin-left:250px>
+              <div class="local">
+                <h3 style=text-align:center;padding-top:15px> Poll Submit successfully</h3>
+              </div>
+         </div>
+         <div style=margin-top:50px;margin-left:350px *ngIf="isValidLoader"  class="loader"></div>
+
+  <div [hidden]="isValidFormSubmitted">
+    <form class="fromGroup" novalidate (ngSubmit)="createPoll()" [formGroup]="poll">
+          <span>Question </span>
+          <span style=background:red  class="badge">{{50-poll.value.question.length}}</span>
+          <input style=width:450px; class="form-control"type="text" placeholder="Enter Question  " formControlName="question" maxlength="50" required>
+      <div style=width:450px style=width:450px class="error" *ngIf="poll.get('question').hasError('required') && poll.get('question').touched"class="alert alert-warning"> question is required</div>
+
+          <span>Due Date</span>
+          <input style=width:450px   class="form-control" type="date" placeholder=" " formControlName="expireOn"  (change)="onDueDate($event)"><div style=width:450px class="error" *ngIf="poll.get('expireOn').hasError('required') && poll.get('expireOn').touched"class="alert alert-warning"> Date is required</div>
+   
+          <span>pollTypeId:</span>
+          <select  style=width:450px  class="form-control" formControlName="pollTypeId">
+              <option [value]="1">Single Choice</option>
+              <option [value]="2">Multipal Choice</option>
+          </select>
+
+          <span>Role Id:</span>
+             <select style=width:450px class="form-control" formControlName="roleIds" multiple >
+                <option *ngFor="let role of rolesData" [value]="role.roleId" >{{role.roleName}}</option>
+             </select>
+         <label>choice</label>
+     <div formArrayName="choices">
+        <div class="row" *ngFor="let ch of poll.controls.choices.controls; let i=index;">
+           <div class="form-group col-lg-5">
+              <input type="text" formControlName="{{i}}">
+                <div class="alert alert-warning" *ngIf="poll.controls.choices.length<2">
+                    Minimum two options are required.
+               </div>
+          </div>
+            <div class="col-lg-2">
+              <button type="button" class="btn btn-danger active" [disabled]="poll.controls.choices.length<=2" (click)="onRemoveSpecialRequest(poll,i)">
+                    <span class="glyphicon glyphicon-remove"></span>
+              </button>
+            </div>
+         </div>
+     </div>  
+        <button style=margin-top:10px class="btn btn-info" type="submit" [disabled]="poll.invalid">Submit</button>
+        <button style=margin-top:10px;margin-left:10px  type="button" class="btn btn-danger" [disabled]="poll.controls.choices.length >= 5||poll.controls.choices.invalid" (click)=onAddSpecialRequest(poll,poll.controls.choices.length)>Add Options</button>
+     </form>
+  </div>
+</div>

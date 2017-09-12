@@ -21,10 +21,14 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
               return err;
          })
      }
-      getpoll(){
-    return this.http.get(this.baseurl+"/admin/poll" )
-    .map((res) =>res.json())
-    .catch((err) =>err);
-  }
-
+//       getpoll(){
+//     return this.http.get(this.baseurl+"/admin/poll/pageNo/1" )
+//     .map((res) =>res.json())
+//     .catch((err) =>err);
+//   }
+      getpoll(pageNo: number, isExpired: boolean){
+          return this.http.get(this.baseurl + '/admin/poll?pageNo='+pageNo+'&expired='+isExpired)
+          .map((res) =>res.json())
+          .catch((err) =>err); 
+      }
  }

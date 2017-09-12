@@ -1,0 +1,37 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%; 
+    margin-left:600px; 
+    position: fixed;
+    border-radius: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/*img {
+    border-radius: 5px 5px 0 0;
+}*/
+
+.container {
+    padding: 2px 16px;
+}
+
+.picture{
+    width: 100px;
+    height:100px;
+    border-radius: 100%;
+    margin-top: -5%;
+    border: 3px solid white;
+    box-shadow: 0px 9px 16px grey;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.admin{
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left:50px; 
+}

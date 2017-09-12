@@ -1,4 +1,4 @@
-.fromGroup{
+/*.fromGroup{
     width:500px;
     height:400px;
     background:lawngreen;
@@ -7,13 +7,55 @@
     margin-top:100px;
 }
 .user{
-    margin-left:150px
+    margin-left:100px
 }
 .user1{
-    margin-left:150px;
+    margin-left:100px;
     margin-top:10px; 
 }
 .btn{
     margin-left:400px;
     margin-top:20px;
+}*/
+  /*body{
+      background-image: url();
+      background-size: cover;
+      background-color:green    
+  }*/
+.aa{
+    width:300px;
+    height:260px;
+    background-color: rgba(0, 0, 0,0.5);
+    margin:0 auto;
+    margin-top:40px;
+    padding-top: 10px;
+    padding-left: 50px;
+    border-radius:15px;
+    -webkit-border-radius:15px; 
+    -o-border-radius:15px;  
+    -moz-border-radius:15px; 
+     color:white;
+     font-weight:bolder; 
+     box-shadow:inset -4px -4px rgba(0, 0, 0,0.2);
+     font-size:18px;   
 }
+ .aa input[type="text"]{
+     width: 230px;
+     height:35px;
+     border:0px; 
+     border-radius:5px;
+    -webkit-border-radius:5px; 
+    -o-border-radius:5px; 
+    padding-left:5px;  
+    -moz-border-radius:5px;
+ }
+  .aa input[type="password"]{
+     width: 230px;
+     height:35px;
+     border:0px; 
+     border-radius:5px;
+     padding-left:5px; 
+    -webkit-border-radius:5px; 
+    -o-border-radius:5px;  
+    -moz-border-radius:5px;
+ }

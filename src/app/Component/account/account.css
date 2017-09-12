@@ -1,0 +1,31 @@
+.profile{
+    background-color: white;
+    margin-top:10%;
+    padding: 2%;
+    text-align: center;
+    font-size: 100%;
+    margin-left:25%; 
+    /*box-shadow: 1px 1px 1px #7b7a7a, 1px 1px 1px #a59797, 1px 1px 1px #989898;*/
+      width:350px;height:300px;
+			
+			background-color: #eed;
+			box-shadow: 10px -10px 5px #CCC;
+			-moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+			-webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+			-o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+}
+.profile-picture{
+    width: 100px;
+    height:100px;
+    border-radius: 100%;
+    margin-top: -50%;
+    border: 3px solid white;
+    box-shadow: 0px 9px 16px grey;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.admin{
+    font-size: 20px;
+    margin-top: 10px;
+}

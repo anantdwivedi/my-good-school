@@ -1,19 +1,26 @@
-import { Component, trigger, state, style, transition, animate, } from '@angular/core';
+import { Component, trigger, state, style, transition, animate, TemplateRef, } from '@angular/core';
 import {  Router,NavigationEnd } from '@angular/router';
-declare let $:any;
+import { BsModalService, BsModalRef } from "ngx-bootstrap";
+declare let $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  modalRef: BsModalRef;
   title = 'app';
   showNav = false;
-  constructor(public router: Router){
-     //localStorage.setItem('access_token',"12345stdgf dsfg");
+  public displayProfile:any;
+  constructor(public router: Router, private modalService: BsModalService){
+    //localStorage.setItem('access_token',"12345stdgf dsfg");
+        this.displayProfile=true;
     this.registerRouteEvents();
-
+   }
+       public openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
+      
     hasLoggedIn(){
       if(localStorage.getItem('access_token')){
          return true;
@@ -46,5 +53,8 @@ $("#wrapper").toggleClass("toggled");
 });
   }
   
-    
+     logOut(){
+       localStorage.clear();
+       this.router.navigate(['/login']);
+     }  
 }

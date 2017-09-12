@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./account.css']
 })
 export class AccountComponent {
- title:string="Account  page";
+  
+    public adminData= JSON.parse(localStorage.getItem("userdetail"));
+    public rolesData= JSON.parse(localStorage.getItem("rollid"));  
+        
 }

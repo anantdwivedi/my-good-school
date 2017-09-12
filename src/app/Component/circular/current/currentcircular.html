@@ -1,0 +1,32 @@
+ <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="add-button">
+                <button type="button" class="btn btn-success btn-circle pull-right" [routerLink]="['/add-circular']">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="">
+                <div style=margin-top:50px;margin-left:350px *ngIf="isValidLoader"  class="loader"></div>
+                <ul class="list-group" style="margin-top:40px">
+                    <li *ngFor="let circular of addcircular" class="list-group-item" [routerLink]="['/view-circular/'+circular.circularId]">
+                        <label>Title </label><span> {{circular.title}}</span><br>
+                        <label>Description </label><span> {{circular.description}}</span><br>
+                       <div class="row" style=margin-left:400px> 
+                        <div class="col-sm-6" ><label>CreateDate </label><span> {{circular.createdOn | date}}</span></div>
+                        <div class="col-sm-4" ><label>CloseDate </label><span> {{circular.expireOn | date}}</span></div>
+                       </div> 
+                    </li>
+                </ul>
+            </div>
+             <ul class="pager">
+               <li><a (click)="previousPoll()">Previous</a></li>
+               <li><a (click)="nextPoll()">Next</a></li>
+             </ul>
+        </div>
+        
+    </div>
+   
+
+
+

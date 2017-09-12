@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="">
+                <div style=margin-top:50px;margin-left:350px *ngIf="isValidLoader"  class="loader"></div>
+                <ul class="list-group">
+                    <li *ngFor="let circular of addcircular" class="list-group-item" [routerLink]="['/view-circular/'+circular.circularId]">
+                        <label>Title </label><span> {{circular.title}}</span><br>
+                        <label>Description </label><span> {{circular.description}}</span><br>
+                     <div class="row" style=margin-left:400px>   
+                        <div class="col-sm-6"><label>CreateDate </label><span> {{circular.createdOn | date}}</span></div>
+                        <div class="col-sm-6"><label>CloseDate </label><span> {{circular.expireOn | date}}</span></div>
+                     </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

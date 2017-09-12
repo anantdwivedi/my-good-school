@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" style=background:green>
+    Create Circular
+    <button style=background:white type="button" class="close pull-right" aria-label="Close" (click)="back()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="isValidFormSubmitted " style=margin-top:200px;margin-left:250px>
+    <div class="local">
+      <h3 style=text-align:center;padding-top:15px> Circular Submit successfully</h3>
+    </div>
+  </div>
+
+  <div style=margin-top:50px;margin-left:350px class="loader" *ngIf="isValidLoader"></div>
+  <div [hidden]="isValidFormSubmitted">
+    <form class="fromGroup" novalidate (ngSubmit)="onCircular()" [formGroup]="circular">
+         <span>Enter Title</span>
+         <span style=background:red  class="badge">{{50-circular.value.title.length}}</span>
+         <input style=width:450px class="form-control" type="text" placeholder="add title " formControlName="title" maxlength="50" required>
+       <div style=width:450px; *ngIf="circular.get('title').hasError('required') && circular.get('title').touched" class="alert alert-danger">Name is required</div>
+        
+         <span>Description</span>
+         <span style=background:red  class="badge">{{100-circular.value.description.length}}</span>
+         <textarea style=width:450px  class="form-control" formControlName="description" row="3" maxlength="100" required></textarea>
+      <div style=width:450px; class="error" *ngIf="circular.get('description').hasError('required') && circular.get('description').touched"class="alert alert-warning"> description is required</div>
+
+         <span>Due Date</span>
+         <input style=width:450px class="form-control" type="date"formControlName="expireOn"(change)="onDueDate($event)">
+      <div class="error" *ngIf="circular.get('expireOn').hasError('required') && circular.get('expireOn').touched" class="alert alert-warning">Date is required</div>
+
+         <span>RoleId:</span>
+         <select style=width:450px class="form-control" formControlName="roleIds" multiple >
+            <option *ngFor="let role of rolesData" [value]="role.roleId">{{role.roleName}}</option>
+        </select>
+
+        <label>Attachment<span class="small">(Optional)</span></label>
+        <input style=width:450px  type="file" accept="images/*" class="form-control-file" formControlName="file" id="exampleInputFile" aria-describedby="fileHelp"(change)="getFile($event)" accept="image/*">
+
+      <button style=margin-left:150px class="btn btn-info" type="button" (click)="resetForm()">Reset</button>
+      <button style=margin-left:100px class="btn btn-info" type="submit" [disabled]="circular.invalid">Submit</button>
+   </form>
+  </div>
+ </div>

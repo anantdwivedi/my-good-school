@@ -1,24 +1,35 @@
-
 <nav class="navbar navbar-default" class="navbar navbar-default navbar-fixed-top navClass" *ngIf='!showNav'>
       <div class="container-fluid" style=background:black>
             <div class="navbar-header" *ngIf="hasLoggedIn()">
-                  <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"><i class="glyphicon glyphicon-menu-hamburger"  ></i></a>
+                  <a class="navbar-brand" id="menu-toggle"><i class="glyphicon glyphicon-menu-hamburger"  ></i></a>
+                  <div style=margin-left:100px;padding-top:5px>
+                        <h4>My GoodSchool</h4>
+                  </div>
             </div>
+             <ul class="nav navbar-nav navbar-right">
+                   <li class="dropdown">
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">UserAccount<span class="caret"></span></a>
+                           <ul class="dropdown-menu">
+                                  <li><a [routerLink]="['/account']" >Account</a></li>
+                                  <li><a (click)="logOut()">LogOut</a></li>
+                          </ul> 
+                   </li>
+             </ul>
       </div>
 </nav>
 
 <div id="wrapper">
+    
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                  <li class="sidebar-brand">
+                  <!--<li class="sidebar-brand">
                         My GoodSchool
-                  </li>
+                  </li>-->
                   <li routerLink="/adduser">Add User</li>
                   <li routerLink="/home">Home</li>
-                  <li routerLink="/messaging">Messaging_Service</li>
                   <li routerLink="/internship">Internship</li>
-                  <li routerLink="/news and updates">News && Updates</li>
+                  <li routerLink="/news">News && Updates</li>
                   <li routerLink="/events">Events</li>
                   <li routerLink="/poll">Poll</li>
                   <li routerLink="/survey">Survey</li>

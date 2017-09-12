@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+         <div class="">
+                <div style=margin-top:50px;margin-left:350px *ngIf="isValidLoader"  class="loader"></div>
+                <ul class="list-group">
+                     <li *ngFor="let poll of polls" class="list-group-item">
+                        <label>Question </label><span> {{poll.question}}</span><br>
+                        <ul>
+                            <li *ngFor="let option of poll.pollOption">
+                             <label>Option Name </label><span> {{option.optionName}}</span>
+                            </li>
+                        </ul> 
+                     <div class="row" style=margin-left:400px>    
+                         <div class="col-sm-6"><label>CreateDate </label><span> {{poll.createdOn | date}}</span></div>
+                         <div class="col-sm-5"><label>CloseDate </label><span> {{poll.expireOn | date}}</span></div>
+                     </div>
+                     </li>
+                </ul>
+          </div>
+    </div>
+</div>

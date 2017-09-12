@@ -1,3 +1,9 @@
-<h1>add page</h1>
+<div class="survey">
 
-     <h1 style=margin-left:400px >{{title}}</h1>
+  <ul class="nav nav-tabs">
+    <li routerLinkActive="active"><a [routerLink]="['/survey/current_survey']">CURRENT</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/survey/close_survey']">CLOSED</a></li>
+  </ul>
+  <div class="tab-content">
+    <router-outlet></router-outlet>
+  </div> 

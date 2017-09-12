@@ -7,21 +7,21 @@ import 'rxjs/add/operator/map'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
  export class AddUserService{
-     baseurl: string;
+          baseurl: string;
      constructor(private http: CustomHttpService,private config: Configuration){
           this.baseurl= this.config.baseUrl;
      }
 
-       signUp(userdata:any){
-       return this.http.post(this.baseurl +"/admin/user",userdata)
-       .map((response: Response)=>{
-         console.log(response);
-           return response.json();
-       }).catch((err) =>{
-         return err;
-       })
+signUp(userdata:any){
+   return this.http.post(this.baseurl +"/admin/user",userdata)
+   .map((response: Response)=>{
+    console.log(response);
+      return response.json();
+  }).catch((err) =>{
+     return err;
+ })
   }
-     getAddUserDetails(){
+getAddUserDetails(){
     return this.http.get(this.baseurl+"/admin/user" )
     .map((res) =>res.json())
     .catch((err) =>err);

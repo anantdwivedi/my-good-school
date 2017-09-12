@@ -1,0 +1,38 @@
+.fromGroup{
+    width:550px;
+    height:550px;
+    background:white;
+    margin-left:200px; 
+    padding-top:20px;
+    border-radius:20px;
+    margin-top:20px;      
+}
+   .loader {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid blue;
+  border-right: 5px solid green;
+  border-bottom: 5px solid red;
+  border-left: 5px solid pink;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  .local{
+       height:50px;
+       width:300px;  
+   background-color: #009688;
+    border-color: #00695C;
+    color: #fff;
+}
