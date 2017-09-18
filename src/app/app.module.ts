@@ -9,7 +9,6 @@ import { HomeComponent } from "./Component/Home/home";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InternshipComponent } from "./Component/internship/internship";
-import { NewsUpdatesComponent } from "./Component/news and updates/new and updates";
 import { EventsComponent } from "./Component/events/events";
 import { SurveyComponent } from "./Component/survey/survey";
 import { AccountComponent } from "./Component/account/account";
@@ -39,11 +38,14 @@ import { ClosePollComponent } from "./Component/poll/close/closepoll";
 import { DateService } from "./Services/dateservice";
 import { CurrentCircularComponent } from "./Component/circular/current/currentcircular";
 import { CloseCircularComponent } from "./Component/circular/close/closecircular";
+import { MessagingComponent } from "./Component/messaging/messaging";
+import { MessagingService } from "./Services/messaging.service";
+import { EventService } from "./Services/event.service";
 
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, LoginComponent, AccountComponent,ProfileComponent, 
-    InternshipComponent, NewsUpdatesComponent,EventsComponent, PollComponent, SurveyComponent,
+    InternshipComponent,MessagingComponent ,EventsComponent, PollComponent, SurveyComponent,
     AddUserComponent, CircularComponent, CurrentComponent, AddComponent,SurveyViewComponent,
     AddCircularComponent,CurrentPollComponent,AddPollComponent,CircularViewComponent,
     CloseSurveyComponent,ClosePollComponent,CurrentCircularComponent,CloseCircularComponent, 
@@ -60,8 +62,8 @@ import { CloseCircularComponent } from "./Component/circular/close/closecircular
     AlertModule.forRoot(),
     CalendarModule,
   ],
-  providers: [ AuthService, AuthGuard, CustomHttpService, Configuration,
-   AddUserService, CircularService, PollService,SurveyService,DateService, 
+  providers: [ AuthService, AuthGuard, CustomHttpService, Configuration,EventService,
+   AddUserService, CircularService, PollService,SurveyService,DateService,MessagingService, 
     {
       provide: CustomHttpService, 
       useFactory: (backend: XHRBackend, defaultOptions: RequestOptions) =>{

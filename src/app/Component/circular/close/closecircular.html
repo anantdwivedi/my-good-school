@@ -9,11 +9,15 @@
                         <label>Description </label><span> {{circular.description}}</span><br>
                      <div class="row" style=margin-left:400px>   
                         <div class="col-sm-6"><label>CreateDate </label><span> {{circular.createdOn | date}}</span></div>
-                        <div class="col-sm-6"><label>CloseDate </label><span> {{circular.expireOn | date}}</span></div>
+                        <div [hidden]="isShow" class="col-sm-6"><label>CloseDate </label><span> {{circular.expireOn | date}}</span></div>
                      </div>
                     </li>
                 </ul>
             </div>
         </div>
+         <ul class="pager">
+               <li><a (click)="previousPoll()">Previous</a></li>
+               <li><a (click)="nextPoll()">Next</a></li>
+             </ul>
     </div>
 </div>

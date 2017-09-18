@@ -28,6 +28,15 @@ export class CloseCircularComponent implements OnInit{
        this.isValidLoader=false;
   })
                 }
-
+   previousPoll(){
+          delete this.addcircular;
+          this.pageNo -= 1;
+          this.getCircular();
+       }
+  nextPoll(){
+         delete this.addcircular;
+         this.pageNo += 1;
+          this.getCircular();
+  }
 
 }

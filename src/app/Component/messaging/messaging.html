@@ -1,0 +1,115 @@
+<div class="chat-window-container">
+    <div class="chat-window">
+        <div class="panel-container">
+            <div class="panel panel-default">
+                <div class="panel-heading top-bar">
+                    <div class="row">
+                        <form (ngSubmit)="messageSend()" [formGroup]="sendsms">
+                            <div [hidden]="ishide" class="col-lg-8">
+                                <!--<p>message type</p>     -->
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <span>List:</span>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" formControlName="againstUserId">
+                                         <option *ngFor="let emp of employee" placeholder="subject" [value]="emp.id">{{emp.name}}</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="subject"  placeholder="subject">
+                                    </div>
+                                    <div class="form-group">
+                                              <textarea class="form-control" style=height:270px placeholder="Enter Your Message" row="4" formControlName="message"></textarea>
+                                    </div>      
+                                    <div class="panel-footer">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <!--<textarea class="textBox"[(ngModel)]="message" placeholder="Enter Your Message" row="4" maxlength="100" required></textarea>-->
+                                                <!--<input class="textBox" formControlName="message" placeholder="Enter Your Message">-->
+                                            </div>
+                                            <div class="col-sm-2"><button class="btn btn-info" type="submit" [disabled]="sendsms.invalid">send</button></div>
+                                            <!--<button class="btn btn-info" type="submit" [disabled]="sendsms.invalid">Send</button>-->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                     </form>
+                                  <!--open ather Row-->
+                                  <div [hidden]="isshow" class="col-lg-8">
+                                <!--<p>message type</p>     -->
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <span>{{subjectName}}</span>
+                                    </div>    
+                                      <div style=height:380px; class="panel-body">
+                                         <div *ngFor="let p of getMessageConversation">
+                                             <div [style.text-align]="p.messageId=='1'?'right':'left'">
+                                                 <div>
+                                                     <!--<span class="badge">{{p.message}}</span><br><span style=font-size:8px>{{p.createdOn | date}}<span>-->
+                                                     <span class="badge">{{p.message}}</span><br><span style=font-size:8px>{{p.createdOn | date}}</span>
+                                                 </div>
+                                             </div> 
+                                             <!--<h1>{{p}}</h1>-->
+                                       </div>  
+                                           <!--<h5>{{getMessageUserConversation.message}}</h5>       -->
+                                      </div>
+                                   
+                                    <div class="panel-footer">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <!--<textarea class="textBox"[(ngModel)]="message" placeholder="Enter Your Message" row="4" maxlength="100" required></textarea>-->
+                                                <input class="textBox" [(ngModel)]="message"  placeholder="Enter Your Message">
+                                            </div>
+                                            <div class="col-sm-2"><button class="btn btn-info" (click)="send()">send</button></div>
+                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                               <!--<div [hidden]="isshow" style=height:300px class="panel-body">
+                                        <textarea  placeholder="Enter Your Subject" row="4" formControlName="subject" maxlength="100" required></textarea>
+                                         <div *ngFor="let p of getMessageConversation">
+                                             <div [style.text-align]="p.messageId=='1'?'right':'left'">
+                                                 <div>
+                                                     <span class="badge">{{p.message}}</span><br><span style=font-size:8px>{{p.createdOn | date}}<span>
+                                                     <span class="badge">{{p.message}}</span><br><span style=font-size:8px>{{p.createdOn}}<span> {{p.date | date}}</span></span><br>
+                                                 </div>
+                                             </div> 
+                                       </div>
+                                </div> -->
+                       
+                        <div class="col-lg-4">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <!--<input #searchBox id="search-box" (keyup)="search(searchBox.value)" />-->
+                                    <button style=margin-left:120px class="btn btn-info btn-sm" (click)="createNewMessage()">
+                                              <span class="glyphicon glyphicon-edit"></span> Create Massege
+                                        </button>
+                                </div>
+                                <div class="panel-body" style=height:430px; class="aa">
+                                    <ul class="list-group">
+                                        <li *ngFor="let q of employes" class="list-group-item" (click)="clickList(q.conversationId,q.subject)">
+                                            <label>{{q.subject}} </label>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <span style=font-size:8px>{{q.createdOn | date}}</span>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <span style=font-size:8px>{{q.conversationId}}</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

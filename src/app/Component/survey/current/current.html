@@ -8,9 +8,9 @@
         <div class="">
                 <div style=margin-top:50px;margin-left:350px *ngIf="isValidLoader"  class="loader"></div>
                 <ul class="list-group" style="margin-top:40px">
-                     <li *ngFor="let survey of showSurvey" class="list-group-item">
+                     <li *ngFor="let survey of showSurvey" class="list-group-item" [routerLink]="['/view-survey/'+survey.surveyId]">
                         <label>Title </label><span> {{survey.title}}</span><br>
-                        <label>Description </label><span> {{survey.description}}</span><br>
+                        <label>Description </label><span> {{survey.description}}</span>
                       <div class="row" style=margin-left:400px>   
                         <div class="col-sm-6"><label>CreateDate </label><span> {{survey.createdOn | date}}</span></div>
                         <div class="col-sm-5"><label>CloseDate </label><span> {{survey.expireOn | date}}</span></div>

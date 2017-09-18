@@ -23,6 +23,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
             .catch((err) =>err)
         }
         getSurveyDetailById(surveyId:any){
-            return this.http.get(this.baseurl +"") 
+            return this.http.get(this.baseurl +'/admin/survey/'+surveyId)
+            .map((res) =>res.json())
+            .catch((err) =>err) 
         }
 }

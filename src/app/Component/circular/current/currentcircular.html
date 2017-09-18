@@ -9,12 +9,12 @@
             <div class="">
                 <div style=margin-top:50px;margin-left:350px *ngIf="isValidLoader"  class="loader"></div>
                 <ul class="list-group" style="margin-top:40px">
-                    <li *ngFor="let circular of addcircular" class="list-group-item" [routerLink]="['/view-circular/'+circular.circularId]">
+                    <li *ngFor="let circular of addcircular" class="list-group-item" data-toggle="modal" data-target="#myModal">
                         <label>Title </label><span> {{circular.title}}</span><br>
-                        <label>Description </label><span> {{circular.description}}</span><br>
+                        <label>Description </label><span> {{circular.description}}</span>
                        <div class="row" style=margin-left:400px> 
                         <div class="col-sm-6" ><label>CreateDate </label><span> {{circular.createdOn | date}}</span></div>
-                        <div class="col-sm-4" ><label>CloseDate </label><span> {{circular.expireOn | date}}</span></div>
+                        <div [hidden]="isShow" class="col-sm-6" ><label>CloseDate </label><span> {{circular.expireOn | date}}</span></div>
                        </div> 
                     </li>
                 </ul>
@@ -24,7 +24,25 @@
                <li><a (click)="nextPoll()">Next</a></li>
              </ul>
         </div>
-        
+              <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
     </div>
    
 

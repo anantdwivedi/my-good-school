@@ -18,5 +18,10 @@ export class CircularViewComponent implements OnInit {
     this.id = params['id'];
   });
  }
+ getCircularDetailById(){
+      this.circularservice.getCircularDetailById(this.id).subscribe((res) =>{
+
+      })
+ }
 
 }

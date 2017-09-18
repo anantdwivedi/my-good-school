@@ -28,11 +28,16 @@ return this.httpf.post(this.baseurl +"/admin/circular",circularData,options)
     return err;
 })
 }
+ getCircularDetailById(circularId:any){
+      return this.http.get(this.baseurl + "")
+  }
 getCircular(pageNo: number, isExpired: boolean){
   return this.http.get(this.baseurl + '/admin/circular?pageNo='+pageNo+'&expired='+isExpired)
  .map((res) =>res.json())
  .catch((err) =>err);
          }
-  }  
+  } 
+ 
+ 
 
 

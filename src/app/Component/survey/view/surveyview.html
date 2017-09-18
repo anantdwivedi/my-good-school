@@ -1,1 +1,20 @@
-<h1>{{id}}</h1>
+<div class="panel panel-default">
+    <div class="panel-heading">Show Survey</div>
+    <div class="panel-body">
+               <div *ngFor="let s of Survey">
+                        <label>Title </label><span class="badge">{{s.title}}</span>
+                        <span style=margin-left:350px><label>Description</label><span class="badge">{{s.description}}</span></span>
+                              <div *ngFor="let q of Question let i=index">
+                                  <label style=margin-left:100px>Question{{i+1}}</label><span class="badge">{{q.question}}</span> 
+                                   <div *ngFor="let op of q.options;let i=index">
+                                       <label style=margin-left:200px>Option{{i+1}}</label><span span class="badge">{{op.option}}</span>
+                                   </div>
+                              </div>
+                        <div class="panel-footer">
+                            <label>Create Date </label><span class="badge">{{s.expireOn | date}}</span> 
+                            <span style=margin-left:450px><label>Close Date</label><span class="badge">{{s.createdOn | date}}</span></span>
+                        </div>
+               </div>               
+           </div>
+   </div>
+ 

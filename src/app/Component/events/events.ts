@@ -2,7 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import 'fullcalendar';
 import * as _ from 'jquery';
-declare let $:any;
+import { EventService } from "../../Services/event.service";
+declare let $: any;
 @Component({
   selector: 'app-events',
   templateUrl: './events.html',
@@ -10,7 +11,7 @@ declare let $:any;
 })
 export class EventsComponent implements OnInit{
   
-         event:  FormGroup;
+          event:  FormGroup;
           public tomorrow:any
           public currentDate:any
           public message:any
@@ -19,10 +20,14 @@ export class EventsComponent implements OnInit{
           public endT:any
           public startTime:any
           public endTime:any
-       constructor(private element:ElementRef){
-          
+          public pageNo:any=1;
+          public isExpired:boolean=true;
+          public eventId:any;
+       constructor(private element:ElementRef,private eventservice:EventService){
+                 this.getEvent();
+                 this.getEventTypeId();
        }
-         public getTomorrow() {
+  public getTomorrow() {
       var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
       var day = ("0" + (currentDate.getDate() + 1)).slice(-2)
       var month = ("0" + (currentDate.getMonth() + 1)).slice(-2)
@@ -32,36 +37,37 @@ export class EventsComponent implements OnInit{
 }
   onStartDate(e:any){
 
-    //       this.currentDate=e.target.value;
-    // if(new Date(e.target.value) < new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate())){
-    //   this.message="Please choose an upcoming date from the calendar";
-    //   $('#modal-success').modal('show');               
-    //   this.event.controls['startDate'].patchValue(this.start);
-    //   this.event.controls['endDate'].patchValue(this.start);
-    // }
-      
-    // if(new Date(e.target.value)> new Date(this.event.controls['endDate'].value)){
-    //   this.message="Please choose date before end date from the calendar";
-    //   $('#modal-success').modal('show');               
-    //   this.event.controls['startDate'].patchValue(this.start);
-    // }
-    // this.startT(this.startTime);
-    // this.endT(this.endTime);   
   }
        ngOnInit(){
           this.event= new FormGroup({
             title: new FormControl('', [Validators.required,]),
-            startdate:  new FormControl('', [Validators.required,]), 
-            enddate: new FormControl('', [Validators.required,]),
-            starttime: new FormControl('',[]),
-            endtime: new FormControl('',[]),
+            startDate:  new FormControl('', [Validators.required,]), 
+            endDate: new FormControl('', [Validators.required,]),
+            startTime: new FormControl('',[]),
+            eventTypeId: new FormControl('',[]),
+            endTime: new FormControl('',[]),
             description: new FormControl('',[Validators.required,]),
             location: new FormControl('',[]),
           })
        }
        onEvent(){
          var obj=this.event.value
-          console.log(obj);
+         // console.log(obj);
+          this.eventservice.addEvent(obj).subscribe((res) =>{
+               console.log(res);
+          })
+       }
+       getEvent(){
+          this.eventservice.getEvent(this.pageNo,this.isExpired).subscribe((res) =>{
+                     console.log("aa nhi",res);
+          })
+       }
+       getEventTypeId(){
+         this.eventservice.getEventTypeId().subscribe((res) =>{
+           this.eventId=res; 
+          localStorage.setItem("eventType",JSON.stringify(res));
+          console.log(this.eventId);     
+         })
        }
      calendarOptions:Object = {
         // height: 'parent',

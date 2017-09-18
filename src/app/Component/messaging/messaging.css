@@ -1,0 +1,12 @@
+.textBox{
+    border: 3px solid #ff9999;
+    padding: 10px 40px; 
+    background: #ffe6e6;
+    width: 300px;
+    border-radius: 25px;
+    text-align:center;
+    margin-left:150px; 
+}
+.aa{
+     overflow-y: scroll;
+}

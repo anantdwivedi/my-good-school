@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <div class="panel-body">
       <div class="add-button">
-         <button type="button" class="btn btn-success btn-circle pull-right">
+         <button type="button" class="btn btn-success btn-circle pull-right"[routerLink]="['/add-poll']">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
          </button>
      </div>
@@ -17,11 +17,15 @@
                         </ul>
                       <div class="row" style=margin-left:400px> 
                         <div class="col-sm-6"><label>CreateDate </label><span> {{poll.createdOn | date}}</span></div>
-                        <div class="col-sm-5"><label>CloseDate </label><span> {{poll.expireOn | date}}</span></div>
+                        <div class="col-sm-6"><label>CloseDate </label><span> {{poll.expireOn | date}}</span></div>
                       </div>
                      </li>
                 </ul>
           </div>
+             <ul class="pager">
+               <li><a (click)="previousPoll()">Previous</a></li>
+               <li><a (click)="nextPoll()">Next</a></li>
+             </ul>
     </div>
 </div>
 

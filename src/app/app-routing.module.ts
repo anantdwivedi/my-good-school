@@ -3,7 +3,6 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { LoginComponent } from './Component/Login/login';
 import { HomeComponent } from "./Component/Home/home";
 import { InternshipComponent } from "./Component/internship/internship";
-import { NewsUpdatesComponent } from "./Component/news and updates/new and updates";
 import { EventsComponent } from "./Component/events/events";
 import { SurveyComponent } from "./Component/survey/survey";
 import { AccountComponent } from "./Component/account/account";
@@ -23,6 +22,7 @@ import { CloseSurveyComponent } from "./Component/survey/close/closesurvey";
 import { ClosePollComponent } from "./Component/poll/close/closepoll";
 import { CurrentCircularComponent } from "./Component/circular/current/currentcircular";
 import { CloseCircularComponent } from "./Component/circular/close/closecircular";
+import { MessagingComponent } from "./Component/messaging/messaging";
 
 
 const routes: Routes = [
@@ -30,7 +30,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path:  'internship', component:InternshipComponent, canActivate:[AuthGuard]},
-    { path: 'news', component:NewsUpdatesComponent, canActivate:[AuthGuard]},
+    { path: 'messaging', component:MessagingComponent, canActivate:[AuthGuard]},
     { path: 'events', component:EventsComponent, canActivate:[AuthGuard]},
     { path: 'poll', component:PollComponent, canActivate:[AuthGuard],
          children:[

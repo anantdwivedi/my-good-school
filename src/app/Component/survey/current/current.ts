@@ -25,4 +25,5 @@ export class CurrentComponent implements OnInit{
             this.isValidLoader=false;
         })
   }
+ 
 }

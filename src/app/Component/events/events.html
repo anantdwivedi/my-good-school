@@ -15,60 +15,51 @@
             <label>
         <span for="inputdefault" > Title</span>
         <span style=background:red  class="badge">{{50-event.value.title.length}}</span>
-        <input style=width:450px class="form-control" id="inputdefault" type="text" placeholder="enter title " formControlName="title">
+        <input style=width:450px class="form-control" id="inputdefault" type="text" placeholder="enter title " formControlName="title" maxlength="50">
       </label>
-        <div class="error" *ngIf="event.get('title').hasError('required') && event.get('title').touched">
-            <strong class="alert alert-warning"> title is required</strong>
-        </div>
+        <div style=width:450px  class="error" *ngIf="event.get('title').hasError('required') && event.get('title').touched" class="alert alert-warning"> title is required</div>
         <label class="center-block">Planner-type;
-            <select style=width:450px  class="form-control" fromControlName="plannertype">
-                <option *ngFor="let select of select" [value]=""></option>
-                <option>Class Event</option>
-                <option>School Event</option>
-                <option>National Holiday</option>
-                <option>EA Test</option>
-                <option>House Event</option>
+            <select style=width:450px  class="form-control" fromControlName="eventTypeId">
+                <option value=1>Class Event</option>
+                <option value=2>School Event</option>
+                <option value=3>National Holiday</option>
+                <option value=4>EA Test</option>
+                <option value=5>House Event</option>
             </select>
         </label>
 
            <label>
         <span for="inputdefault">Start Date</span>
-        <input style=width:450px   class="form-control" id="inputdefault" type="date"  formControlName="startdate" (change)="onStartDate($event)">
+        <input style=width:450px   class="form-control" id="inputdefault" type="date"  formControlName="startDate" (change)="onStartDate($event)">
         
       </label>
-        <div   class="error" *ngIf="event.get('startdate').hasError('required') && event.get('startdate').touched">
-            <strong class="alert alert-warning"> start date is required</strong>
-        </div>
+        <div style=width:450px   class="error" *ngIf="event.get('startDate').hasError('required') && event.get('startDate').touched" class="alert alert-warning"> start date is required</div>
         <label>
          <span>End Date </span>
-          <input style=width:450px class="form-control" type="date" formControlName="enddate">
+          <input style=width:450px class="form-control" type="date" formControlName="endDate">
         </label>
-        <div class="error" *ngIf="event.get('enddate').hasError('required') && event.get('enddate').touched">
-              <strong class="alert alert-warning">end date is required</strong>
-        </div>
+        <div style=width:450px  class="error" *ngIf="event.get('endDate').hasError('required') && event.get('endDate').touched" class="alert alert-warning">end date is required</div>
         <label>
             <span>Start Time</span>
-            <input style=width:450px class="form-control" type="time" formControlName="starttime">
+            <input style=width:450px class="form-control" type="time" formControlName="startTime">
             <!--<input type="time" style=width:450px class="form-control glyphicon glyphicon-time" formControlName="starttime" id="startTime" name="startTime"> -->
         </label>
         <label>
             <span>End Time</span>
-             <input style=width:450px class="form-control" type="time" formControlName="endtime">
+             <input style=width:450px class="form-control" type="time" formControlName="endTime">
         </label>
         <label>
         <span>Description</span>
         <span class="small">Optional</span>
         <span style=background:red class="badge">{{250-event.value.description.length}}</span>
-        <textarea style=width:450px  class="form-control" formControlName="description" row="3"></textarea>
+        <textarea style=width:450px  class="form-control" formControlName="description" row="3" maxlength="250"></textarea>
       </label>
-        <div class="error" *ngIf="event.get('description').hasError('required') && event.get('description').touched">
-            <strong class="alert alert-warning"> description is required</strong>
-        </div>
+        <div style=width:450px  class="error" *ngIf="event.get('description').hasError('required') && event.get('description').touched" class="alert alert-warning"> description is required</div>
        <label>
            <span>Location</span>
           <span class="small">Optional</span>
           <span style=background:red  class="badge">{{50-event.value.location.length}}</span>
-           <input style=width:450px class="form-control" type="text" formControlName="location">
+           <input style=width:450px class="form-control" type="text" formControlName="location" maxlength="50">
 
        </label>
            

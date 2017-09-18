@@ -22,4 +22,14 @@ export class CurrentPollComponent{
             this.isValidLoader=false;
         })
    } 
+   previousPoll(){
+       delete this.polls;
+       this.pageNo -=1;
+       this.getpoll();
+   }
+   nextPoll(){
+       delete this.polls;
+       this.pageNo +=1;
+       this.getpoll;
+   }
 }
